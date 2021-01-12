@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+.contenedor {
+  height: calc(100vh - 188px);
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.col-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 4rem;
+}
+
+@media (max-width: 600px) {
+  .col-card {
+    padding: 2rem 4rem;
+  }
+}
+
+nz-card {
+  width: 100%;
+}
+
+nz-card:hover {
+  cursor: default;
+}

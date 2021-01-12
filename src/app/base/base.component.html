@@ -1,0 +1,17 @@
+<nz-layout>
+  <nz-header>
+    <ul nz-menu nzTheme="dark" nzMode="horizontal">
+      <li nz-menu-item [routerLink]="''">El perezoso wilson</li>
+    </ul>
+  </nz-header>
+  <nz-content>
+    <nz-breadcrumb>
+      <nz-breadcrumb-item *ngFor="let ruta of (rutas | async); let last = last" [routerLink]="ruta.nombre">
+        <i nz-icon [nzTheme]="last ? 'twotone' : 'outline'" [nzType]="ruta.icono"></i> <span
+          [ngClass]="{'texto-azul': last}">{{ruta.nombre}}</span>
+      </nz-breadcrumb-item>
+    </nz-breadcrumb>
+    <router-outlet></router-outlet>
+  </nz-content>
+  <nz-footer>Creado por Cesar Leonardo Ochoa</nz-footer>
+</nz-layout>

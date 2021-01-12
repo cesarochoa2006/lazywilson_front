@@ -1,0 +1,33 @@
+<div nz-row class="contenedor">
+  <div nz-col nzMd=24 class="col-card">
+    <nz-card nzTitle="Wilson" [nzBordered]="false" nzHoverable>
+      <nz-steps [nzCurrent]="actual" nzSize="small">
+        <nz-step nzTitle="Enviar archivo" [nzStatus]="estado"></nz-step>
+        <nz-step nzTitle="Ver resultado"></nz-step>
+      </nz-steps>
+      <div class="steps-content">
+        <!-- Paso 1 -->
+        <div *ngIf="actual === 0">
+          <form nz-form [formGroup]="formulario" (ngSubmit)="enviar()">
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Valor incorrecto">
+                <nz-input-group nzPrefixIcon="user">
+                  <input type="number" nz-input formControlName="cedula" placeholder="Cédula" />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </form>
+        </div>
+        <!-- Paso 2 -->
+        <div *ngIf="actual === 1">
+          Paso 2
+        </div>
+      </div>
+      <div class="steps-action">
+        <button nz-button nzType="primary" [routerLink]="'/'" *ngIf="actual === 1">
+          <span>Terminar</span>
+        </button>
+      </div>
+    </nz-card>
+  </div>
+</div>
