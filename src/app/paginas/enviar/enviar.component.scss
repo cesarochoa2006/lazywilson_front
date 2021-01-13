@@ -1,0 +1,26 @@
+.input {
+  width: 100%;
+}
+
+.espacio-contenedor {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.bloque {
+  margin: 8px 4px;
+  padding: 4px;
+  flex: none;
+  width: 100%;
+}
+
+.contenidoArchivo {
+  margin: 1rem;
+  background-color: black;
+  color: rgb(0, 22, 221);
+  width: calc(100% - 2rem);
+  height: 250px;
+  overflow-y: auto;
+}

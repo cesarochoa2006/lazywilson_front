@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { NzUploadFile } from 'ng-zorro-antd/upload';
+import { BehaviorSubject } from 'rxjs';
+
 
 @Component({
   selector: 'app-enviar',
@@ -9,13 +12,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class EnviarComponent implements OnInit {
   actual = 0;
   estado = 'finish';
-  formulario: FormGroup;
-  constructor(private fb: FormBuilder) {
-    this.formulario = this.fb.group({
-      cedula: [null, [Validators.minLength(4), Validators.maxLength(12), Validators.required]],
-      archivo: ['', Validators.required]
-    });
-  }
+  cedula = undefined;
+  cargando = false;
+  archivos: NzUploadFile[] = [];
+  resultado = new BehaviorSubject<string>('');
+  constructor(private mensajero: NzMessageService) { }
 
   ngOnInit(): void {
   }
@@ -23,5 +24,38 @@ export class EnviarComponent implements OnInit {
   enviar(): void {
 
   }
+
+  subirArchivo(idMensaje: string): void {
+    // TODO consumir servicio envio
+    this.resultado.next(`1
+    2
+    3
+    4
+    45
+    55
+    5
+    56
+    `);
+    this.actual += 1;
+  }
+
+  beforeUpload = (archivo: NzUploadFile): boolean => {
+    if (!this.cedula) {
+      this.mensajero.create('error', 'La cédula no es válida, por favor verifica e intenta nuevamente');
+    } else if (!archivo || !archivo.name?.endsWith('.txt')) {
+      this.mensajero.create('error', 'No se envió un archivo correcto, por favor verifica e intenta nuevamente');
+    } else {
+      this.archivos = this.archivos.concat(archivo);
+      this.mensajero.create('success', `Se cargó << ${archivo.name} >> correctamente`);
+      setTimeout(() => {
+        const idMensaje: string = this.mensajero.loading('Procesando, por favor espere', { nzDuration: 0 }).messageId;
+        this.subirArchivo(idMensaje);
+      }, 300);
+
+    }
+    return false;
+  }
+
+
 
 }

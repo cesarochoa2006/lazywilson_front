@@ -7,20 +7,39 @@
       </nz-steps>
       <div class="steps-content">
         <!-- Paso 1 -->
-        <div *ngIf="actual === 0">
-          <form nz-form [formGroup]="formulario" (ngSubmit)="enviar()">
-            <nz-form-item>
-              <nz-form-control nzErrorTip="Valor incorrecto">
-                <nz-input-group nzPrefixIcon="user">
-                  <input type="number" nz-input formControlName="cedula" placeholder="Cédula" />
-                </nz-input-group>
-              </nz-form-control>
-            </nz-form-item>
-          </form>
+        <div class="espacio-contenedor" *ngIf="actual === 0">
+          <div nz-space nzDirection="vertical" nzAlign="center" class="bloque">
+            <nz-space-item>
+              <nz-input-number class="input" [(ngModel)]="cedula" [nzMin]="999" [nzMax]="999999999999"
+                [nzPlaceHolder]="'Ingresa tu cédula'">
+              </nz-input-number>
+            </nz-space-item>
+            <nz-space-item>
+              <nz-upload nzType="drag" [nzMultiple]="false" [nzBeforeUpload]="beforeUpload">
+                <p class="ant-upload-drag-icon">
+                  <i nz-icon nzType="inbox"></i>
+                </p>
+                <p class="ant-upload-text">Da un click o arrastra un archivo .txt para continuar</p>
+                <p class="ant-upload-hint">
+                  Recuerda que solo se acepta un archivo .txt. Para mayor información contacta con Tech and Solve
+                </p>
+              </nz-upload>
+            </nz-space-item>
+          </div>
+          <!-- <div nz-col nzSpan="12" nzOffset="6">
+
+          </div>
+          <div nz-col nzSpan="12" nzOffset="6">
+
+          </div> -->
         </div>
         <!-- Paso 2 -->
-        <div *ngIf="actual === 1">
-          Paso 2
+        <div class="espacio-contenedor" *ngIf="actual === 1">
+          <div nz-space nzDirection="vertical" nzAlign="center" class="bloque">
+            <nz-space-item style="width: 100%; padding: 1rem">
+              <textarea class="contenidoArchivo">{{resultado | async}}</textarea>
+            </nz-space-item>
+          </div>
         </div>
       </div>
       <div class="steps-action">

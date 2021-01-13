@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Ruta } from './tipos/Ruta';
+import { Ruta } from '../tipos/Ruta';
 
 @Injectable({
   providedIn: 'root'

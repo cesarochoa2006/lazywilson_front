@@ -20,11 +20,15 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzStepsModule } from 'ng-zorro-antd/steps';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { ProveedorMigasService } from './proveedor-migas.service';
+import { ProveedorMigasService } from './servicios/proveedor-migas.service';
 import { RevisarComponent } from './paginas/revisar/revisar.component';
 import { EnviarComponent } from './paginas/enviar/enviar.component';
 import { NzFormModule } from 'ng-zorro-antd/form';
-
+import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { NzSpaceModule } from 'ng-zorro-antd/space';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+import { RestService } from './servicios/rest.service';
 
 registerLocaleData(es);
 
@@ -52,9 +56,13 @@ registerLocaleData(es);
     NzButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    NzFormModule
+    NzFormModule,
+    NzInputNumberModule,
+    NzUploadModule,
+    NzSpaceModule,
+    NzMessageModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: es_ES }, ProveedorMigasService],
+  providers: [{ provide: NZ_I18N, useValue: es_ES }, ProveedorMigasService, RestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

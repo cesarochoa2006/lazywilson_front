@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { ProveedorMigasService } from '../proveedor-migas.service';
+import { ProveedorMigasService } from '../servicios/proveedor-migas.service';
 import { Ruta } from '../tipos/Ruta';
 
 @Component({
