@@ -1,2 +1,22 @@
 <div nz-row class="contenedor">
+  <div nz-col nzMd=24 class="col-card">
+    <nz-card nzTitle="Listado de peticiones" [nzBordered]="false" nzHoverable>
+      <nz-table #basicTable [nzData]="peticiones" *ngIf="peticiones.length > 0">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Cédula</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of basicTable.data; let i = index">
+            <td>{{i}}</td>
+            <td>{{data.cedula}}</td>
+            <td>{{data.fecha}}</td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </nz-card>
+  </div>
 </div>

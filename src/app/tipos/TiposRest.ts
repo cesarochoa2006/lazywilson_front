@@ -19,4 +19,9 @@ export interface Envio {
   cedula?: string | number;
 }
 
+export interface Peticion {
+  fecha: string | Date;
+  cedula?: string | number;
+}
+
 

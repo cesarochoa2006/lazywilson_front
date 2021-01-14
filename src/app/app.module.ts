@@ -29,6 +29,7 @@ import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { RestService } from './servicios/rest.service';
+import { NzTableModule } from 'ng-zorro-antd/table';
 
 registerLocaleData(es);
 
@@ -60,7 +61,8 @@ registerLocaleData(es);
     NzInputNumberModule,
     NzUploadModule,
     NzSpaceModule,
-    NzMessageModule
+    NzMessageModule,
+    NzTableModule
   ],
   providers: [{ provide: NZ_I18N, useValue: es_ES }, ProveedorMigasService, RestService],
   bootstrap: [AppComponent]

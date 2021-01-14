@@ -15,7 +15,6 @@ export class EnviarComponent implements OnInit {
   actual = 0;
   estado = 'finish';
   cedula = undefined;
-  cargando = false;
   archivos: NzUploadFile[] = [];
   resultado = new BehaviorSubject<string>('');
   constructor(
