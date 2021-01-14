@@ -2,4 +2,4 @@ export const environment = {
   production: true
 };
 
-export const servidor = 'http://localhost:38080/cesarochoa-lazywilson/';
+export const servidor = 'https://lazywilson.cesarochoa.online/lazywilson/servicio/';
