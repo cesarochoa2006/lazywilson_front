@@ -21,5 +21,6 @@ describe('RevisarComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.peticiones).toBeDefined();
   });
 });
