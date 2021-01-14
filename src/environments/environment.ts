@@ -6,7 +6,7 @@ export const environment = {
   production: false
 };
 
-export const servidor = 'http://localhost:38080/cesarochoa-lazywilson/';
+export const servidor = 'http://localhost:8080/lazywilson/servicio/';
 
 /*
  * For easier debugging in development mode, you can import the following file

@@ -15,8 +15,8 @@ export interface Respuesta {
  * Tipo para consumo de envio de archivo
  */
 export interface Envio {
-  archivo: 'string';
-  cedula: string | number;
+  objeto: string | ArrayBuffer;
+  cedula?: string | number;
 }
 
 

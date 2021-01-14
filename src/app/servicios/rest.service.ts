@@ -12,6 +12,11 @@ import { Envio, Respuesta } from '../tipos/TiposRest';
 export class RestService {
   constructor(protected http: HttpClient) { }
   enviar(cuerpo: Envio): Observable<Respuesta> {
-    return this.http.get<Respuesta>(`${servidor}`);
+    console.log('Peticion al servidor', JSON.stringify(cuerpo));
+    return this.http.post<Respuesta>(`${servidor}viajes`, cuerpo, {
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
   }
 }
