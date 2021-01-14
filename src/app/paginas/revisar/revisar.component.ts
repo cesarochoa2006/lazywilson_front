@@ -21,7 +21,6 @@ export class RevisarComponent implements OnInit {
       res => {
         this.mensajero.remove(idMensaje);
         if (res.codigo === 0) {
-          console.log(res);
           this.peticiones = res.datos as Peticion[];
         } else {
           this.mensajero.error(res.mensaje);
