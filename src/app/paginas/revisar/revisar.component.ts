@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { BehaviorSubject } from 'rxjs';
 import { RestService } from 'src/app/servicios/rest.service';
 import { Peticion } from 'src/app/tipos/TiposRest';
 
